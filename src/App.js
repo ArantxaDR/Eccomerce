@@ -1,8 +1,15 @@
-import './App.css';
+import { Header } from './components/header/Header';
+import { ProductList } from './components/product-list/ProductList';
+import './App.scss';
 
 function App() {
   return (
-   <h1>Napptilus</h1>
+    <>
+    <Header/>
+      <main className='container'>
+        <ProductList/>
+      </main>
+    </>
   );
 }
 
