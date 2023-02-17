@@ -1,30 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { getProducts } from '../../services/productsServices';
-import loader from '../../assets/images/loader.svg';
-import'./ProductList.scss'
+import React, { useRef } from 'react';
 import { ProductsCards } from '../products-cards/ProductsCards';
+import search from '../../assets/images/search.svg';
+import'./ProductList.scss'
 
-export const ProductList = () => {
-	const [products, setProducts] = useState();
-	const [loading, setLoading] = useState(true);
+export const ProductList = (props) => {
+  const inputEl = useRef();
+  const handleSearch = () => {
+    props.searchHandler(inputEl.current.value);
+  }
 
-	useEffect(() => {
-		getProducts().then((response) => {
-			setProducts(response);
-			console.log(response)
-		}).catch(error => {
-			alert('There is no products. Try again later');
-		})
-		setLoading(false);
-	},[])
-	return (
-    <>
+  return (
+    <div className='products_container'>
+      <form className='search_container'>
+        <input
+          ref={inputEl}
+          placeholder='Search phone'
+          type='search'
+          className='search_input'
+          onChange={handleSearch}
+          value={props.search}
+        />
+        <img className='search_icon' src={search} alt='Search icon' />
+      </form>
       <ul className='products_list'>
-		    {loading ? (<img className='loading' src={loader} alt='loader' />) : 
-			    products && products.map((product) =>
-				    <ProductsCards key={product.id} product={product}/>
-		    )}
-		  </ul>
-		</>
+		    {props.products && props.products.map((product) =>
+          <ProductsCards key={product.id} product={product} />)
+        } 
+      </ul>
+    </div>
   )
 }
