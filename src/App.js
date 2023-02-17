@@ -1,5 +1,5 @@
 import { Header } from './components/header/Header';
-import { ProductList } from './components/product-list/ProductList';
+import { ProductList } from './components/products-list/ProductList';
 import './App.scss';
 
 function App() {

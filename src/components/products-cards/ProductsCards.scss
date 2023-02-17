@@ -1,0 +1,29 @@
+@import '../../styles/colors';
+
+.card_item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: rgba(41, 39, 36, 0.25);
+	box-shadow: 0 8px 20px 0 rgba(31, 38, 135, 0.37);
+	backdrop-filter: blur(4px);
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	width: 18rem;
+	height: 15rem;
+	list-style: none;
+	color: $color-terciary;
+	font-size: 10px;
+
+	&__img {
+		width: 150px;
+		height: 150px;
+		border-radius: 5px;
+		box-shadow: 1px 7px 10px rgb(71, 68, 68);
+	}
+}
+
+.cards {
+	text-decoration: none;
+}

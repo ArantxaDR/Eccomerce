@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getProducts } from '../../services/productsServices';
 import loader from '../../assets/images/loader.svg';
 import'./ProductList.scss'
+import { ProductsCards } from '../products-cards/ProductsCards';
 
 export const ProductList = () => {
 	const [products, setProducts] = useState();
@@ -16,19 +17,14 @@ export const ProductList = () => {
 		})
 		setLoading(false);
 	},[])
-  return (
-	  <ul className='products_list'>
-		  {loading ? (<img className='loading' src={loader} alt='loader' />) : 
-			   products && products.map((product) =>
-				   <li key={product.id}>
-					   <div>
-						   <img src={product.imgUrl} alt={product.model}/>
-						   <p>{product.brand} - {product.model}</p>
-						   <p>{product.price}</p>
-					   </div>
-				  </li>
-		  )}
-		  
-	</ul>
+	return (
+    <>
+      <ul className='products_list'>
+		    {loading ? (<img className='loading' src={loader} alt='loader' />) : 
+			    products && products.map((product) =>
+				    <ProductsCards key={product.id} product={product}/>
+		    )}
+		  </ul>
+		</>
   )
 }

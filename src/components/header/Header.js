@@ -1,11 +1,15 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import './Header.scss';
-import shoping from '../../assets/images/shopping-cart.png'
+import shoping from '../../assets/images/shopping-cart.png';
+
 
 export const Header = () => {
 	return (
 		<header className='header_container'>
-			<h1>Esto es un header</h1>
+			<Link>
+				<h1>Napptilus</h1>
+			</Link>
 			<div className='breadcrumb'>
 				<div className='breadcrumb_item'>
 					<p>Página/</p>
