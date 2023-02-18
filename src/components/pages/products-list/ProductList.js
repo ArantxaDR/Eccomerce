@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { ProductsCards } from '../../common/products-cards/ProductsCards';
-import search from '../../assets/images/search.svg';
-import'./ProductList.scss'
+import search from '../../../assets/images/search.svg';
+import './ProductList.scss';
 
 export const ProductList = (props) => {
   const inputEl = useRef();

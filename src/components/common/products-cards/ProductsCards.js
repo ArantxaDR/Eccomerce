@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../../../styles/_button.scss';
 import './ProductsCards.scss';
 
 export const ProductsCards = (props) => {
@@ -16,8 +17,8 @@ export const ProductsCards = (props) => {
         <p className="card_item__model">{props.product.model}</p>
         <p className="card_item__price">{props.product.price}€</p>
       </div>
-     <Link>
-        <button className='card_item__btn'>See more details</button>
+      <Link to={`/product/${props.product.id}`}>
+        <button className='btn'>View more</button>
       </Link>
 	</li>
   )

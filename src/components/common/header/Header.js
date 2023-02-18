@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import './Header.scss';
-import shoping from '../../assets/images/shopping-cart.svg';
+import shoping from '../../../assets/images/shopping-cart.svg';
 
 
 export const Header = () => {

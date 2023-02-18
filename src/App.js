@@ -4,7 +4,7 @@ import { ProductList } from './components/pages/products-list/ProductList';
 import { getProducts } from './services/productsServices';
 import {ProductDetails} from './components/pages/product-details/ProductDetails';
 import loader from './assets/images/loader.svg';
-import { Route, Router, Routes } from 'react-router';
+import { Route, Routes } from 'react-router';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -40,12 +40,19 @@ function App() {
    <>
       <Header/>
         <main className='container'>
-          {loading ? <img src={loader} alt='Loading'/>:
-          <ProductList 
-            products={search.length <1 ? products : searchResult} 
-            search={search} 
-            searchHandler={searchHandler}
-            />}     
+        {loading ? <img src={loader} alt='Loading' /> :
+          <Routes>
+            <Route path='/' element={
+              <ProductList
+                products={search.length < 1 ? products : searchResult}
+                search={search}
+                searchHandler={searchHandler}
+              />
+            }
+            />            
+            <Route path='/product/:product_id' element={<ProductDetails/>} />
+
+          </Routes>}
         </main>
     </>
 

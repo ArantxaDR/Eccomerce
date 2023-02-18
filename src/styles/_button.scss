@@ -1,0 +1,17 @@
+@import './colors';
+
+.btn {
+	margin: 1rem 0;
+	height: 2rem;
+	padding: 0.5rem;
+	background-color: transparent;
+	border-radius: 10px;
+	border: 1px solid $color-terciary;
+	transition: border-color 0.5s, background-color 0.5s, color 0.5s;
+
+	&:hover {
+		background-color: $color-terciary;
+		border-color: transparent;
+		color: $color-primary;
+	}
+}
