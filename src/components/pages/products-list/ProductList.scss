@@ -41,8 +41,12 @@
 	}
 
 	@media screen and (max-device-width: 480px) {
-		.search_container {
-			left: 20%;
+		.products_container {
+			margin-top: 1rem;
+
+			.search_container {
+				left: 20%;
+			}
 		}
 	}
 

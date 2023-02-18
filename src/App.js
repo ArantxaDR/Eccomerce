@@ -50,27 +50,24 @@ function App() {
    <>
       <Header products={products} />
      
-      <main className='container'>
-        <Pagination totalPages={totalPages} handleClick={handleClick} />
-        
+      <main className='container'>       
         {loading ? <img src={loader} alt='Loading' /> :
-          <>
-            {}
-           
           <Routes>
-            <Route path='/' element={
-              <ProductList
-                products={search.length < 1 ? selectedProducts : searchResult}
-                search={search}
-                searchHandler={searchHandler}
-                page={page}
-              />
+              <Route path='/' element={
+                <>
+                  <Pagination totalPages={totalPages} handleClick={handleClick} page={page} />
+                  <ProductList
+                    products={search.length < 1 ? selectedProducts : searchResult}
+                    search={search}
+                    searchHandler={searchHandler}
+                    page={page}
+                  />
+                </>
             }
             />            
             <Route path='/product/:product_id' element={<ProductDetails/>} />
 
             </Routes>
-          </>
           }
        
         </main>
