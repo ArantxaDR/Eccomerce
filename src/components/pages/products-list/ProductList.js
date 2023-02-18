@@ -3,12 +3,12 @@ import { ProductsCards } from '../../common/products-cards/ProductsCards';
 import search from '../../../assets/images/search.svg';
 import './ProductList.scss';
 
-export const ProductList = (props) => {
+export const ProductList = (props,{page}) => {
   const inputEl = useRef();
   const handleSearch = () => {
     props.searchHandler(inputEl.current.value);
   }
-
+  
   return (
     <div className='products_container'>
       <form className='search_container'>

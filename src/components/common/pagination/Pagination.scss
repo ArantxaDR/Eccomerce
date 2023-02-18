@@ -1,0 +1,33 @@
+@import '../../../styles/colors';
+
+.pagination {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: 1rem;
+}
+
+.pagination button {
+	width: 25px;
+	height: 25px;
+	font-family: inherit;
+	font-weight: 600;
+	font-size: 16px;
+	margin: 0 10px;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	background: transparent;
+	color: $color-secondary;
+	border-color: $color-secondary;
+
+	&:hover {
+		background: $color-secondary;
+		color: $color-primary;
+		border-color: $color-primary;
+	}
+
+	&:active {
+		background-color: $color-terciary;
+	}
+}

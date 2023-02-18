@@ -20,7 +20,12 @@ getDetails().then((response)=>{
 )
 
 	return (
-		<>
+    <>
+      <Link to='/'>
+
+        <button className='btn back_btn'>Back to products</button>
+
+      </Link>
       {loading ? <img src={loader} alt='Loading' /> :
         <>
         <div className='details_container'>
@@ -70,11 +75,7 @@ getDetails().then((response)=>{
           </div>
           
         </div>
-          <Link to='/'>
-            
-              <button className='btn back_btn'>Back to products</button>
-            
-          </Link>
+        
        </> 
       }
      
