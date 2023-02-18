@@ -7,3 +7,6 @@ export const getProducts = () => {
   return getAllProducts;
 
 }
+
+
+

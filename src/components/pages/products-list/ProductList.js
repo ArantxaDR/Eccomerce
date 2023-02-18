@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { ProductsCards } from '../products-cards/ProductsCards';
+import { ProductsCards } from '../../common/products-cards/ProductsCards';
 import search from '../../assets/images/search.svg';
 import'./ProductList.scss'
 

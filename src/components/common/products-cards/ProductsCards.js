@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './ProductsCards.scss';
 
 export const ProductsCards = (props) => {
@@ -11,8 +12,13 @@ export const ProductsCards = (props) => {
         src={props.product.imgUrl}
       />
       <h1 className="card_item__brand">{props.product.brand}</h1>
-      <p className="card_item__model">{props.product.model}</p>
-      <p className="card_item__price">{props.product.price} €</p>
+      <div className='item_info'>
+        <p className="card_item__model">{props.product.model}</p>
+        <p className="card_item__price">{props.product.price}€</p>
+      </div>
+     <Link>
+        <button className='card_item__btn'>See more details</button>
+      </Link>
 	</li>
   )
 }

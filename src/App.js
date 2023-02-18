@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Header } from './components/header/Header';
-import { ProductList } from './components/products-list/ProductList';
+import { Header } from './components/common/header/Header';
+import { ProductList } from './components/pages/products-list/ProductList';
 import { getProducts } from './services/productsServices';
+import {ProductDetails} from './components/pages/product-details/ProductDetails';
 import loader from './assets/images/loader.svg';
+import { Route, Router, Routes } from 'react-router';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -33,20 +35,20 @@ function App() {
       setSearchResult(products);
     }
   }
- 
-  return (
-    <>
-    <Header/>
-      <main className='container'>
-        {loading ? <img src={loader} alt='Loading'/>:
-        <ProductList 
-        products={search.length <1 ? products : searchResult} 
-        search={search} 
-        searchHandler={searchHandler}
 
-        />}        
-      </main>
+  return (
+   <>
+      <Header/>
+        <main className='container'>
+          {loading ? <img src={loader} alt='Loading'/>:
+          <ProductList 
+            products={search.length <1 ? products : searchResult} 
+            search={search} 
+            searchHandler={searchHandler}
+            />}     
+        </main>
     </>
+
   );
 }
 
