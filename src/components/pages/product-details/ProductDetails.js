@@ -68,24 +68,24 @@ export const ProductDetails = () => {
         {loading ? <img src={loader} alt='Loading' /> :
           <>
             <div className='details_container'>
-              <div className='column_1'>
+              <div className='details_column__1'>
                 <img className="detail_img" src={product.imgUrl} alt="product display" />
               </div>
 					
-              <div className='column_2'>
+              <div className='details_column__2'>
                 <div className='details_info'>
                   <ul className='details_info__list'>
-                    <li>{product.brand}</li>
-                    <li>{product.model}</li>
-                    <li>{product.price}€</li>
-                    <li>{product.cpu}</li>
-                    <li>{product.ram}</li>
-                    <li>{product.os}</li>
-                    <li>{product.displayResolution}</li>
-                    <li>{product.battery}</li>
-                    <li>{product.primaryCamera}</li>
-                    <li>{product.dimentions}</li>
-                    <li>{product.weight}</li>
+                    <li>Brand: {product.brand}</li>
+                    <li>Model: {product.model}</li>
+                    <li>Price: {product.price}€</li>
+                    <li>CPU: {product.cpu}</li>
+                    <li>RAM: {product.ram}</li>
+                    <li>O.S: {product.os}</li>
+                    <li>Display resolution: {product.displayResolution}</li>
+                    <li>Battery: {product.battery}</li>
+                    <li>Camera: {product.primaryCamera}</li>
+                    <li>Dimentions: {product.dimentions}</li>
+                    <li>Weight: {product.weight} gr</li>
                   </ul>
                 </div>
                 <div className='details_actions'>

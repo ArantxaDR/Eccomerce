@@ -21,11 +21,9 @@ function App() {
   useEffect(() => {
     const productsLocal = getLocalStorage('products');
     if (productsLocal?.expiry < Date.now() + PERSISTENCE_TIME) {
-      console.log("cargo desde storage");
-      setProducts(productsLocal.value);
+        setProducts(productsLocal.value);
     }
     else { 
-      console.log("cargo desde API");
       getProducts().then((response) => {
       setProducts(response);
       setTotalPages(Math.ceil(response.length / PRODUCT_PER_PAGE));
