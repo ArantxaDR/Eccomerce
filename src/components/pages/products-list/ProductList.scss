@@ -35,7 +35,6 @@
 
 	.products_list {
 		display: grid;
-		margin-left: 4rem;
 		padding: 1rem;
 		gap: 0.5rem;
 		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -56,11 +55,19 @@
 		.search_container {
 			left: 65%;
 		}
+
+		.products_list {
+			margin-left: 1.5rem;
+		}
 	}
 
 	@media screen and (min-device-width: 1024px) {
 		.search_container {
 			left: 75%;
+		}
+
+		.products_list {
+			margin-left: 3rem;
 		}
 	}
 
