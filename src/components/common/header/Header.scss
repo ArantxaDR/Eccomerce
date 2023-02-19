@@ -7,28 +7,16 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: space-between;
 	color: $color-secondary;
 
-	.breadcrumb {
-		display: flex;
-		align-items: center;
+	&__logo {
+		margin-left: 3rem;
+		height: 4.5rem;
 	}
 
-	.breadcrumb__item {
-		margin: 0 0.5rem;
-		position: relative;
-	}
-
-	.breadcrumb__item:not(:last-child)::after {
-		position: absolute;
-		right: 0;
-		top: 0;
-		transform: translate(0.5rem, 0px);
-		content: '/';
-	}
-
-	.header_container-icon {
+	&__icon {
+		margin-right: 3rem;
 		height: 2.5rem;
 	}
 }
