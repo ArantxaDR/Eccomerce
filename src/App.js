@@ -5,7 +5,7 @@ import { ProductList } from './components/pages/products-list/ProductList';
 import { getProducts } from './services/productsServices';
 import { ProductDetails } from './components/pages/product-details/ProductDetails';
 import { Pagination } from './components/common/pagination/Pagination';
-import { PRODUCT_PER_PAGE } from './utils/constants';
+import { PRODUCT_PER_PAGE, PERSISTENCE_TIME } from './utils/constants';
 import { getLocalStorage, setLocalStorage } from './services/LocalStorageService';
 import loader from './assets/images/loader.svg';
 
@@ -20,7 +20,7 @@ function App() {
    
   useEffect(() => {
     const productsLocal = getLocalStorage('products');
-    if (productsLocal?.expiry < Date.now() + 3600000) {
+    if (productsLocal?.expiry < Date.now() + PERSISTENCE_TIME) {
       console.log("cargo desde storage");
       setProducts(productsLocal.value);
     }

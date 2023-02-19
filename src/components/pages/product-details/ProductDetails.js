@@ -2,6 +2,8 @@ import React, {  useEffect, useState } from 'react';
 import {  Link, useParams } from 'react-router-dom';
 import loader from '../../../assets/images/loader.svg';
 import { getDetails, addCart } from '../../../services/productsServices';
+import { setLocalStorage, getLocalStorage } from '../../../services/LocalStorageService';
+import { PERSISTENCE_TIME } from '../../../utils/constants';
 import './ProductDetails.scss';
 
 
@@ -14,10 +16,16 @@ export const ProductDetails = () => {
   
 
   useEffect(() => {
+    const detailLocal = getLocalStorage('product');
+    if (detailLocal?.expiry < Date.now() + PERSISTENCE_TIME) {
+      setProduct(detailLocal.value);
+    } else{
     getDetails(params.id).then((response) => {
       setProduct(response);
       setLoading(false);
-    })
+    }).catch((error) => {
+      alert('There is an error. Try again later')
+    }) }
   }, [params.id]
   );
 
@@ -26,6 +34,10 @@ export const ProductDetails = () => {
     setSelectedStorage(product?.options.storages[0].code);
   }, [product]
   );
+
+  useEffect(() => {
+    setLocalStorage(product?.id, product);
+  }, [product]);
 
   const handleColorSelection = (event) => {
     setSelectedColors(event.target.value)
@@ -44,7 +56,6 @@ export const ProductDetails = () => {
     addCart(productSelection).then((response) => { 
       console.log(response);
     });
-    //console.log(productSelection)
   }
 
     return (
