@@ -1,5 +1,5 @@
 import React, {  useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import {  Link, useParams } from 'react-router-dom';
 import loader from '../../../assets/images/loader.svg';
 import { getDetails } from '../../../services/productsServices';
 import shoping from '../../../assets/images/shopping-cart.svg';
@@ -7,16 +7,16 @@ import './ProductDetails.scss';
 import '../../../styles/_button.scss';
 
 export const ProductDetails = () => {
-	const {product_id} = useParams();
+  const params = useParams();
 	 const [product, setProduct] = useState();
 	const [loading, setLoading] = useState(false);
 
 useEffect(()=>{
-getDetails().then((response)=>{
+  getDetails(params.id).then((response)=>{
 	console.log(response)
 	setProduct(response);
 })
-}
+}, [params.id]
 )
 
 	return (

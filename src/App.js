@@ -16,12 +16,12 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  
+ 
 
   useEffect(() => {
     getProducts().then((response) => {
       setProducts(response);
-      setTotalPages(Math.ceil(response.length / PRODUCT_PER_PAGE));
+      setTotalPages(Math.ceil(response.length / PRODUCT_PER_PAGE));      
     }).catch(error => {
       alert('There is no products. Try again later');
     })
@@ -60,14 +60,15 @@ function App() {
                     products={search.length < 1 ? selectedProducts : searchResult}
                     search={search}
                     searchHandler={searchHandler}
-                    page={page}
+                  page={page}
                   />
                 </>
             }
             />            
-            <Route path='/product/:product_id' element={<ProductDetails/>} />
-
-            </Routes>
+            <Route path='product/:id' element={<ProductDetails />} />
+          </Routes>
+          
+          
           }
        
         </main>

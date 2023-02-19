@@ -3,7 +3,7 @@ import { ProductsCards } from '../../common/products-cards/ProductsCards';
 import search from '../../../assets/images/search.svg';
 import './ProductList.scss';
 
-export const ProductList = (props,{page}) => {
+export const ProductList = (props, { setSelectedProductId }) => {
   const inputEl = useRef();
   const handleSearch = () => {
     props.searchHandler(inputEl.current.value);
