@@ -1,7 +1,7 @@
 import React, {  useEffect, useState } from 'react';
 import {  Link, useParams } from 'react-router-dom';
 import loader from '../../../assets/images/loader.svg';
-import { getDetails } from '../../../services/productsServices';
+import { getDetails, addCart } from '../../../services/productsServices';
 import './ProductDetails.scss';
 
 
@@ -9,8 +9,8 @@ export const ProductDetails = () => {
   const params = useParams();
   const [product, setProduct] = useState();
   const [loading, setLoading] = useState(true);
-  const [selectedColors, setSelectedColors] = useState('');
-  const [selectedStorage, setSelectedStorage] = useState('');
+  const [selectedColors, setSelectedColors] = useState();
+  const [selectedStorage, setSelectedStorage] = useState();
   
 
   useEffect(() => {
@@ -35,11 +35,16 @@ export const ProductDetails = () => {
     setSelectedStorage(event.target.value)
   }
 
-  const handleSubmit = (event) => {
+  const handleAddToCart= (event) => {
     event.preventDefault();
-    const productId = product.id;
-    const productSelection = { productId, selectedColors, selectedStorage }
-    console.log(productSelection)
+    const id = product.id;    
+    const colorCode = Number(selectedColors);
+    const storageCode = Number(selectedStorage);
+    const productSelection = { id, colorCode, storageCode }
+    addCart(productSelection).then((response) => { 
+      console.log(response);
+    });
+    //console.log(productSelection)
   }
 
     return (
@@ -90,7 +95,7 @@ export const ProductDetails = () => {
                   </select>
                 </div>
 					
-                <button className='btn' onClick={handleSubmit}>Add to shopping cart</button>
+                <button className='btn' onClick={handleAddToCart}>Add to shopping cart</button>
               </div>
           
             </div>
