@@ -17,7 +17,7 @@ export const ProductsCards = (props) => {
         <p className="card_item__model">{props.product.model}</p>
         <p className="card_item__price">{props.product.price}€</p>
       </div>
-      <Link to={`/product/${props.product.id}`}>
+      <Link to={`/product/${props.product.id}`} >
         <button className='btn'>View more</button>
       </Link>
 	</li>

@@ -17,7 +17,6 @@ function App() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
  
-
   useEffect(() => {
     getProducts().then((response) => {
       setProducts(response);
@@ -60,7 +59,7 @@ function App() {
                     products={search.length < 1 ? selectedProducts : searchResult}
                     search={search}
                     searchHandler={searchHandler}
-                  page={page}
+                    page={page}
                   />
                 </>
             }

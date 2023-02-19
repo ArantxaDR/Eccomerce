@@ -46,22 +46,13 @@
 
 		select {
 			display: inline-block;
-			width: 10rem;
-			height: 1.5rem;
-			padding: 3px 6px;
-			margin-bottom: 10px;
-			font-size: 12px;
-			line-height: 20px;
-			color: #555555;
-			vertical-align: middle;
+			padding: 0.4em 1em;
+			font-size: 1rem;
+			background-color: $color-secondary;
+			color: $color-primary;
 			border-radius: 4px;
 		}
 	}
-
-	.back_btn {
-		margin-left: 3rem;
-	}
-
 }
 
 
