@@ -3,7 +3,7 @@ import { ProductsCards } from '../../common/products-cards/ProductsCards';
 import search from '../../../assets/images/search.svg';
 import './ProductList.scss';
 
-export const ProductList = (props,{page}) => {
+export const ProductList = (props) => {
   const inputEl = useRef();
   const handleSearch = () => {
     props.searchHandler(inputEl.current.value);
@@ -24,7 +24,7 @@ export const ProductList = (props,{page}) => {
       </form>
       <ul className='products_list'>
 		    {props.products && props.products.map((product) =>
-          <ProductsCards key={product.id} product={product} />)
+          <ProductsCards key={product.id} product={product}/>)
         } 
       </ul>
     </div>

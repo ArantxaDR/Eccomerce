@@ -36,8 +36,8 @@
 	.products_list {
 		display: grid;
 		padding: 1rem;
-		gap: 1rem;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 0.5rem;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 	}
 
 	@media screen and (max-device-width: 480px) {
@@ -45,7 +45,7 @@
 			margin-top: 1rem;
 
 			.search_container {
-				left: 20%;
+				left: 25%;
 			}
 		}
 	}
@@ -55,11 +55,19 @@
 		.search_container {
 			left: 65%;
 		}
+
+		.products_list {
+			margin-left: 1.5rem;
+		}
 	}
 
 	@media screen and (min-device-width: 1024px) {
 		.search_container {
 			left: 75%;
+		}
+
+		.products_list {
+			margin-left: 3rem;
 		}
 	}
 

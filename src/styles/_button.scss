@@ -15,3 +15,15 @@
 		color: $color-primary;
 	}
 }
+
+.back_btn {
+	margin-left: 3rem;
+	border: 1px solid $color-secondary;
+	color: $color-terciary;
+
+	&:hover {
+		background-color: $color-secondary;
+		border-color: transparent;
+		color: $color-primary;
+	}
+}

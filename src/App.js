@@ -5,7 +5,8 @@ import { ProductList } from './components/pages/products-list/ProductList';
 import { getProducts } from './services/productsServices';
 import { ProductDetails } from './components/pages/product-details/ProductDetails';
 import { Pagination } from './components/common/pagination/Pagination';
-import { PRODUCT_PER_PAGE } from './utils/constants';
+import { PRODUCT_PER_PAGE, PERSISTENCE_TIME } from './utils/constants';
+import { getLocalStorage, setLocalStorage } from './services/LocalStorageService';
 import loader from './assets/images/loader.svg';
 
 
@@ -16,17 +17,27 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  
-
+   
   useEffect(() => {
-    getProducts().then((response) => {
+    const productsLocal = getLocalStorage('products');
+    if (productsLocal?.expiry < Date.now() + PERSISTENCE_TIME) {
+        setProducts(productsLocal.value);
+    }
+    else { 
+      getProducts().then((response) => {
       setProducts(response);
       setTotalPages(Math.ceil(response.length / PRODUCT_PER_PAGE));
-    }).catch(error => {
-      alert('There is no products. Try again later');
-    })
-    setLoading(false);
+      }).catch(error => {
+        alert('There is no products. Try again later');
+      })
+      setLoading(false);
+    }
+      
   }, []);
+
+  useEffect(() => {
+    setLocalStorage('products', products);
+  }, [products]);
 
   const searchHandler =(search)=>{
     setSearch(search);
@@ -65,9 +76,10 @@ function App() {
                 </>
             }
             />            
-            <Route path='/product/:product_id' element={<ProductDetails/>} />
-
-            </Routes>
+            <Route path='product/:id' element={<ProductDetails />} />
+          </Routes>
+          
+          
           }
        
         </main>
