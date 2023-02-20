@@ -10,6 +10,7 @@ import { getLocalStorage, setLocalStorage } from './services/LocalStorageService
 import loader from './assets/images/loader.svg';
 
 
+
 function App() {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
@@ -17,6 +18,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const [quantity, setQuantity] = useState(0);
    
   useEffect(() => {
     const productsLocal = getLocalStorage('products');
@@ -59,7 +61,7 @@ function App() {
 
   return (
    <>
-      <Header products={products} />
+      <Header products={products} quantity={ quantity} />
      
       <main className='container'>       
         {loading ? <img src={loader} alt='Loading' /> :
@@ -72,11 +74,12 @@ function App() {
                     search={search}
                     searchHandler={searchHandler}
                     page={page}
+                  
                   />
                 </>
             }
             />            
-            <Route path='product/:id' element={<ProductDetails />} />
+            <Route path='product/:id' element={<ProductDetails setQuantity={setQuantity} />}  />
           </Routes>
           
           

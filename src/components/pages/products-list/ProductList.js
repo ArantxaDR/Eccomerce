@@ -24,7 +24,7 @@ export const ProductList = (props) => {
       </form>
       <ul className='products_list'>
 		    {props.products && props.products.map((product) =>
-          <ProductsCards key={product.id} product={product}/>)
+          <ProductsCards key={product.id} product={product}  />)
         } 
       </ul>
     </div>

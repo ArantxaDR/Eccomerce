@@ -6,14 +6,12 @@ import { setLocalStorage, getLocalStorage } from '../../../services/LocalStorage
 import { PERSISTENCE_TIME } from '../../../utils/constants';
 import './ProductDetails.scss';
 
-
-export const ProductDetails = () => {
+export const ProductDetails = ({setQuantity}) => {
   const params = useParams();
   const [product, setProduct] = useState();
   const [loading, setLoading] = useState(true);
   const [selectedColors, setSelectedColors] = useState();
-  const [selectedStorage, setSelectedStorage] = useState();
-  
+  const [selectedStorage, setSelectedStorage] = useState();  
 
   useEffect(() => {
     const detailLocal = getLocalStorage('product');
@@ -54,7 +52,7 @@ export const ProductDetails = () => {
     const storageCode = Number(selectedStorage);
     const productSelection = { id, colorCode, storageCode }
     addCart(productSelection).then((response) => { 
-      console.log(response);
+     setQuantity(response);
     });
   }
 

@@ -18,8 +18,7 @@ export const getDetails = (id) => {
 }
 
 export const addCart = (productSelection) => {
-  const jsonRequest = JSON.stringify(productSelection);
-  const postProduct = axios.post(BASE_URL+"/cart", jsonRequest)
+  const postProduct = axios.post(BASE_URL + "/cart", productSelection)
     .then((response) => response.data);
   return postProduct;
 }
