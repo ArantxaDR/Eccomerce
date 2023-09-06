@@ -1,4 +1,4 @@
-# Napptilus-challenge
+# Ecommerce
 
 The task is to create an ecommerce with a display of products and show more details by clicking in a button. In the details page you can choose color and storage to add to a shoping cart.
 
