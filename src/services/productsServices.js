@@ -2,8 +2,8 @@ import axios from 'axios';
 import { BASE_URL } from '../utils/constants';
 
 export const getProducts = () => {
-  const getAllProducts = axios.get(BASE_URL+"/product ")
-    .then((response) => response.data);
+  const getAllProducts = axios.get(BASE_URL)
+    .then((response) => response.data.products);
 
   return getAllProducts;
 
@@ -11,7 +11,7 @@ export const getProducts = () => {
 
 
 export const getDetails = (id) => {
-  const getProductDetails = axios.get(BASE_URL+`/product/${id}`)
+  const getProductDetails = axios.get(BASE_URL+`${id}`)
     .then((response) => response.data);
 
   return getProductDetails;

@@ -79,7 +79,7 @@ function App() {
                 </>
             }
             />            
-            <Route path='product/:id' element={<ProductDetails setQuantity={setQuantity} />}  />
+            <Route path='products/:id' element={<ProductDetails setQuantity={setQuantity} />}  />
           </Routes>
           
           

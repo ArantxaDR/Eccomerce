@@ -10,11 +10,11 @@ export const ProductsCards = (props) => {
 		  <img
 			  className='card_item__img'
         alt={props.product.model}
-        src={props.product.imgUrl}
+        src={props.product.thumbnail}
       />
       <h1 className="card_item__brand">{props.product.brand}</h1>
       <div className='item_info'>
-        <p className="card_item__model">{props.product.model}</p>
+        <p className="card_item__model">{props.product.title}</p>
         <p className="card_item__price">{props.product.price}€</p>
       </div>
       <Link to={`/product/${props.product.id}`} >

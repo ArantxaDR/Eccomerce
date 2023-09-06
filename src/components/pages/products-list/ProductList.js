@@ -14,7 +14,7 @@ export const ProductList = (props) => {
       <form className='search_container'>
         <input
           ref={inputEl}
-          placeholder='Search phone'
+          placeholder='Search'
           type='search'
           className='search_input'
           onChange={handleSearch}

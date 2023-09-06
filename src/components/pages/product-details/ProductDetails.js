@@ -10,8 +10,7 @@ export const ProductDetails = ({setQuantity}) => {
   const params = useParams();
   const [product, setProduct] = useState();
   const [loading, setLoading] = useState(true);
-  const [selectedColors, setSelectedColors] = useState();
-  const [selectedStorage, setSelectedStorage] = useState();  
+ 
 
   useEffect(() => {
     const detailLocal = getLocalStorage('product');
@@ -27,30 +26,16 @@ export const ProductDetails = ({setQuantity}) => {
   }, [params.id]
   );
 
-  useEffect(() => { 
-    setSelectedColors(product?.options.colors[0].code);
-    setSelectedStorage(product?.options.storages[0].code);
-  }, [product]
-  );
-
+ 
   useEffect(() => {
     setLocalStorage(product?.id, product);
   }, [product]);
 
-  const handleColorSelection = (event) => {
-    setSelectedColors(event.target.value)
-  }
-  
-  const handleStoragesSelection = (event) => {
-    setSelectedStorage(event.target.value)
-  }
 
   const handleAddToCart= (event) => {
     event.preventDefault();
     const id = product.id;    
-    const colorCode = Number(selectedColors);
-    const storageCode = Number(selectedStorage);
-    const productSelection = { id, colorCode, storageCode }
+    const productSelection = { id }
     addCart(productSelection).then((response) => { 
      setQuantity(response);
     });
@@ -74,36 +59,12 @@ export const ProductDetails = ({setQuantity}) => {
                 <div className='details_info'>
                   <ul className='details_info__list'>
                     <li>Brand: {product.brand}</li>
-                    <li>Model: {product.model}</li>
+                    <li>Model: {product.title}</li>
                     <li>Price: {product.price}€</li>
-                    <li>CPU: {product.cpu}</li>
-                    <li>RAM: {product.ram}</li>
-                    <li>O.S: {product.os}</li>
-                    <li>Display resolution: {product.displayResolution}</li>
-                    <li>Battery: {product.battery}</li>
-                    <li>Camera: {product.primaryCamera}</li>
-                    <li>Dimentions: {product.dimentions}</li>
-                    <li>Weight: {product.weight} gr</li>
+                    <li>Description: {product.description}</li>
+                    <li>Discount: {product.discountPercentage}%</li>
                   </ul>
-                </div>
-                <div className='details_actions'>
-                  <label className='details_actions__label'>
-                    Pick a color:
-                  </label>
-                  <select className='details_actions__select' onChange={handleColorSelection} defaultValue={product.options.colors[0].code}>
-                    {product.options.colors.map((color) =>
-                      <option key={color.code} value={color.code}>{color.name}</option>)}
-                  </select>
-             
-                  <label className='details_actions__label'>
-                    Pick a storage:
-                  </label>
-                  <select className='details_actions__select' onChange={handleStoragesSelection} defaultValue={product.options.storages[0].code}>                   
-                    {product.options.storages.map((storage) =>
-                      <option key={storage.code} value={storage.code}>{storage.name}</option>)}
-                  </select>
-                </div>
-					
+                </div>					
                 <button className='btn' onClick={handleAddToCart}>Add to shopping cart</button>
               </div>
           
