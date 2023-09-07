@@ -52,7 +52,7 @@ export const ProductDetails = ({setQuantity}) => {
           <>
             <div className='details_container'>
               <div className='details_column__1'>
-                <img className="detail_img" src={product.imgUrl} alt="product display" />
+                <img className="detail_img" src={product.thumbnail} alt="product display" />
               </div>
 					
               <div className='details_column__2'>

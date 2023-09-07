@@ -7,13 +7,13 @@
 	width: 100%;
 	justify-content: space-between;
 
-	.details_column {
-		flex: 50%;
-	}
+	// .details_column {
+	// 	flex: 50%;
+	// }
 
 	.detail_img {
-		height: 20rem;
-		width: 15rem;
+		height: 25rem;
+		width: 25rem;
 	}
 
 	.details_info,
@@ -33,26 +33,6 @@
 		}
 	}
 
-	.details_actions {
-		display: flex;
-
-		&__label {
-			margin-right: 0.5rem;
-		}
-
-		&__select {
-			margin-right: 3rem;
-		}
-
-		select {
-			display: inline-block;
-			padding: 0.4em 1em;
-			font-size: 1rem;
-			background-color: $color-secondary;
-			color: $color-primary;
-			border-radius: 4px;
-		}
-	}
 }
 
 
