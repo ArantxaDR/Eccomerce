@@ -32,7 +32,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The app has been organized in two parts:
 
 * A **home** with a display of the products, a search bar and a pagination to see every product in the API.
-* A **details** in where you can see more details about an especific product. You can also choose color and storage and send the selección to the shopping cart.
+* A **details** in where you can see more details about an especific product. 
 
 For the **styles**:
 
